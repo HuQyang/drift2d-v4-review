@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2D 漂移第四版盲审</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <div class="eyebrow">2D DRIFT V4 · BLIND REVIEW · LAYOUT V3</div>
+    <h1>2D 漂移第四版盲审</h1>
+  </div>
+  <label class="rater">标注者 <input id="rater" placeholder="名字" autocomplete="off"></label>
+  <div class="progress"><span id="progress-text"></span><div class="bar"><div id="bar"></div></div></div>
+</header>
+<main>
+  <nav id="list" aria-label="片段列表"></nav>
+  <section id="stage">
+    <div class="clip-head">
+      <h2 id="clip-title"></h2>
+      <span id="step-badge" class="badge"></span>
+    </div>
+    <div id="panels" class="panels"></div>
+    <div class="player" id="player">
+      <button id="play" title="播放 / 暂停（空格）">播放</button>
+      <button id="prev" title="上一帧（←）">◀ 上一帧</button>
+      <button id="next" title="下一帧（→）">下一帧 ▶</button>
+      <span id="frame" class="frame"></span>
+      <input id="scrub" type="range" min="0" max="80" value="0" aria-label="帧">
+      <span class="speed">倍速
+        <button data-rate="0.1">0.1×</button><button data-rate="0.25">0.25×</button><button data-rate="0.5">0.5×</button><button data-rate="1">1×</button>
+      </span>
+      <button id="shot" title="把当前帧存成图片">截图</button>
+    </div>
+    <p id="hint" class="hint"></p>
+  </section>
+  <aside id="panel">
+    <form id="form"></form>
+    <p id="status" class="status" role="status"></p>
+  </aside>
+</main>
+<footer>
+  <button id="export">导出全部标签（JSON）</button>
+  <button id="export-old" class="quiet">导出旧版标签</button>
+  <span id="store-note">标签每次保存都写入服务器上的 labels/labels.json；导出只是备份。</span>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
